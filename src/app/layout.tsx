@@ -10,6 +10,12 @@ export const poppins = Poppins({
   weight: ['400', '700'],
 });
 
+// export const inter = Inter({
+//   subsets: ['latin'],
+//     variable: "--font-inter",
+//   display: 'swap',
+// })
+
 export const metadata: Metadata = {
   title: "Delicious Recipes - Your Ultimate Food Recipe App",
   description: "Discover a variety of mouth-watering recipes, cooking tips, and meal ideas to satisfy your cravings. Join our community of food lovers today!",
@@ -22,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} antialiased`}>
+      <body className={poppins.className}>
         <Navbar />
         {children}
       </body>

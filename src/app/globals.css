@@ -14,14 +14,109 @@
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.6;
+  font-size: 16px;
+  color: var(--foreground);
+  background-color: var(--background);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  line-height: 1.4;
+}
+
+p {
+  margin-top: 0;
+}
+
+button {
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  
+  .container {
+    max-width: 1472px;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  .d-flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .d-flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
