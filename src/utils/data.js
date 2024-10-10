@@ -14,14 +14,17 @@ export const NavbarData = {
     {
       name: "Home",
       hasSubmenu: false,
+      link: "/"
     },
     {
       name: "Recipe",
       hasSubmenu: false,
+      link: "recipe"
     },
     {
       name: "About Us",
       hasSubmenu: false,
+      link: "aboutus"
     },
   ],
   search: {

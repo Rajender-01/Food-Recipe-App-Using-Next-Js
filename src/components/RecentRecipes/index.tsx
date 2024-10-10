@@ -17,7 +17,7 @@ const index = () => {
               height={322}
             />
             <div className="flex flex-col items-start justify-center h-auto gap-9 p-12">
-              <h3 className="text-3xl font-semibold">{"Donut"}</h3>
+              <h3 className="text-3xl font-semibold">{recipe?.title}</h3>
               <p className="text-xl">
               {recipe?.description}
               </p>
