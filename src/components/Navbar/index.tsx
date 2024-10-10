@@ -4,9 +4,9 @@ import { PiBowlSteam } from "react-icons/pi";
 
 const index: React.FC = () => {
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-auto shadow-md">
       <div className="w-full h-[30px] bg-[#ed1b24]"></div>
-      <div className="d-flex-between py-5 container border-b-2">
+      <div className="d-flex-between py-5 container">
         <div className="flex items-center gap-2">
           <PiBowlSteam size={27} className="mb-[5px]" />
           <span className="text-[22px] font-medium">Delights Table</span>
