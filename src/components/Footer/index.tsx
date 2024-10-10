@@ -1,30 +1,14 @@
 import { NavbarData } from "@/utils/data";
 import React from "react";
 import { PiBowlSteam } from "react-icons/pi";
-import {
-  TiSocialFacebook,
-  TiSocialLinkedin,
-  TiSocialTwitter,
-  TiSocialYoutube,
-} from "react-icons/ti";
-
-const socialIcons = [
-  { icon: TiSocialFacebook, size: 20, color: "white" },
-  { icon: TiSocialLinkedin, size: 20, color: "white" },
-  { icon: TiSocialTwitter, size: 20, color: "white" },
-  { icon: TiSocialYoutube, size: 20, color: "white" },
-];
+import { socialIcons } from "@/utils/data";
 
 const index = () => {
   return (
-    <div className="w-full bg-primaryColor min-h-[273px] d-flex-center ">
+    <div className="w-full bg-primaryColor min-h-[273px] d-flex-center mt-[80px] ">
       <div className="container d-flex-between">
         <div className="d-flex-center gap-3">
-          <PiBowlSteam
-            size={30}
-            className="mb-[2px]"
-            color="white"
-          />
+          <PiBowlSteam size={30} className="mb-[2px]" color="white" />
           <span className="text-[27px] font-medium text-white">
             {NavbarData?.header?.title}
           </span>
