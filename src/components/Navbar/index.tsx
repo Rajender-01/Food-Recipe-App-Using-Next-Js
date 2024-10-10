@@ -19,14 +19,22 @@ const index: React.FC = () => {
         </div>
 
         <ul className="d-flex-center gap-1 text-[21px] space-x-11 font-medium">
-          {NavbarData?.menuItems?.map((item, idx: number) => {
-            return (
-              <li key={idx} className="cursor-pointer relative group">
-                {item?.name}
-                <span className="absolute left-[50%] translate-x-[-50%] -bottom-0.5 h-[2px] w-0 bg-primaryColor transition-all duration-300 group-hover:w-full"></span>
-              </li>
-            );
-          })}
+          {NavbarData?.menuItems?.map(
+            (
+              item: {
+                name: string;
+                hasSubmenu?: boolean;
+              },
+              idx: number
+            ) => {
+              return (
+                <li key={idx} className="cursor-pointer relative group">
+                  {item?.name}
+                  <span className="absolute left-[50%] translate-x-[-50%] -bottom-0.5 h-[2px] w-0 bg-primaryColor transition-all duration-300 group-hover:w-full"></span>
+                </li>
+              );
+            }
+          )}
         </ul>
 
         <div className="max-w-64 bg-gray-200 rounded-2xl flex items-center px-4">
