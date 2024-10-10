@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins",
   display: "swap",
-  weight: ['400', '700'],
+  weight: ["400", "700"],
 });
 
 // export const inter = Inter({
@@ -18,7 +19,8 @@ export const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Delicious Recipes - Your Ultimate Food Recipe App",
-  description: "Discover a variety of mouth-watering recipes, cooking tips, and meal ideas to satisfy your cravings. Join our community of food lovers today!",
+  description:
+    "Discover a variety of mouth-watering recipes, cooking tips, and meal ideas to satisfy your cravings. Join our community of food lovers today!",
 };
 
 export default function RootLayout({
@@ -31,6 +33,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

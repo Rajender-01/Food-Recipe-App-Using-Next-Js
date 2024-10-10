@@ -115,6 +115,13 @@ select:focus {
     justify-content: center;
   }
 
+  .d-flex-col-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
   .d-flex-between {
     display: flex;
     align-items: center;
