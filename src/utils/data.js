@@ -62,3 +62,42 @@ export const socialIcons = [
   { icon: TiSocialTwitter, size: 20, color: "white" },
   { icon: TiSocialYoutube, size: 20, color: "white" },
 ];
+
+export const recipeData = [
+  {
+    id: 1,
+    title: "Waffles",
+    description: "Cool recipe to eat with friends in the morning.",
+    image: "/images/Featured-image-1.jpg",
+  },
+  {
+    id: 2,
+    title: "Coffees",
+    description: "Tasty coffee perfect for the breakfast.",
+    image: "/images/Featured-image-2.jpg",
+  },
+  {
+    id: 3,
+    title: "Omelette",
+    description: "A quick and easy omelette recipe.",
+    image: "/images/Featured-image-3.jpg",
+  },
+  {
+    id: 4,
+    title: "Coffees",
+    description: "Tasty coffee perfect for the breakfast.",
+    image: "/images/Featured-image-2.jpg",
+  },
+  {
+    id: 5,
+    title: "Omelette",
+    description: "A quick and easy omelette recipe.",
+    image: "/images/Featured-image-3.jpg",
+  },
+  {
+    id: 6,
+    title: "Waffles",
+    description: "Cool recipe to eat with friends in the morning.",
+    image: "/images/Featured-image-1.jpg",
+  },
+];
