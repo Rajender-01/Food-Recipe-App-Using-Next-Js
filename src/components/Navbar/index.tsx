@@ -2,6 +2,7 @@ import React from "react";
 import { BsSearch } from "react-icons/bs";
 import { PiBowlSteam } from "react-icons/pi";
 import { NavbarData } from "../../utils/data";
+import Link from "next/link";
 
 const index: React.FC = () => {
   return (
@@ -24,12 +25,15 @@ const index: React.FC = () => {
               item: {
                 name: string;
                 hasSubmenu?: boolean;
+                link?: string;
               },
               idx: number
             ) => {
               return (
                 <li key={idx} className="cursor-pointer relative group">
-                  {item?.name}
+                  <Link href={item?.link?.toLowerCase() || "/"} className="text-decoration-none">
+                    {item?.name}
+                  </Link>
                   <span className="absolute left-[50%] translate-x-[-50%] -bottom-0.5 h-[2px] w-0 bg-primaryColor transition-all duration-300 group-hover:w-full"></span>
                 </li>
               );

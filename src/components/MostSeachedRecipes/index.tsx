@@ -42,7 +42,7 @@ const recipeData = [
 
 const index: React.FC = () => {
   return (
-    <div className="w-full h-auto d-flex-col-center py-[80px] gap-14">
+    <div className="w-full h-auto d-flex-col-center mt-[80px] gap-14">
       <h2 className="text-4xl font-bold">Most Searched Recipes</h2>
       <div className="flex items-start justify-center flex-wrap container gap-9">
         {Array.from({ length: recipeData?.length }).map((_, index) => (
