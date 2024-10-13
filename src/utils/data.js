@@ -14,7 +14,7 @@ export const NavbarData = {
     {
       name: "Home",
       hasSubmenu: false,
-      link: "/"
+      link: ""
     },
     {
       name: "Recipe",
@@ -62,3 +62,46 @@ export const socialIcons = [
   { icon: TiSocialTwitter, size: 20, color: "white" },
   { icon: TiSocialYoutube, size: 20, color: "white" },
 ];
+
+export const recipeData = [
+  {
+    id: 1,
+    title: "Waffles",
+    description: "Cool recipe to eat with friends in the morning.",
+    image: "/images/Featured-image-1.jpg",
+  },
+  {
+    id: 2,
+    title: "Coffees",
+    description: "Tasty coffee perfect for the breakfast.",
+    image: "/images/Featured-image-2.jpg",
+  },
+  {
+    id: 3,
+    title: "Omelette",
+    description: "A quick and easy omelette recipe.",
+    image: "/images/Featured-image-3.jpg",
+  },
+  {
+    id: 4,
+    title: "Coffees",
+    description: "Tasty coffee perfect for the breakfast.",
+    image: "/images/Featured-image-2.jpg",
+  },
+  {
+    id: 5,
+    title: "Omelette",
+    description: "A quick and easy omelette recipe.",
+    image: "/images/Featured-image-3.jpg",
+  },
+  {
+    id: 6,
+    title: "Waffles",
+    description: "Cool recipe to eat with friends in the morning.",
+    image: "/images/Featured-image-1.jpg",
+  },
+];
+
+export const AboutData = {
+  data: "<p>Lorem ipsum sit amet consectetur, adipisicing elit. Maiores qui sunt non, nemo accusantium assumenda iure nulla itaque a unde. Veniam exercitationem ratione placeat eum dolorum rem maiores voluptatem, doloremque eligendi eaque modi perspiciatis ab. Natus illo commodi praesentium magni consectetur iste ex, quis quaerat est deserunt dolore officia culpa aspernatur deleniti? Nulla est reiciendis tempore molestias maiores dolores officia quos fugit voluptatibus, esse exercitationem laboriosam provident harum ullam veniam ratione perspiciatis incidunt eligendi? Facere quisquam tempore et natus ipsam,</br></br> non laboriosam aspernatur quasi, a ullam molestiae. Explicabo rerum quos, eaque saepe ab, tempore, repudiandae labore sunt est culpa dignissimos libero obcaecati pariatur repellendus tempora quibusdam. Reiciendis, aperiam? Dolor dignissimos quibusdam itaque provident placeat dolorum, eligendi ea pariatur? Enim adipisci utem natus accusantium! Dolore magni quam ipsum pariatur earum rerum ab, sint, molestias maiores qui nobis, quis mollitia dicta fuga deserunt non sunt blanditiis omnis libero et in molestiae laboriosam nulla! Quis sequi voluptates placeat dolorem repudiandae perferendis ad fuga non reiciendis quae sed necessitatibus nam deserunt provident dolor aut, odio repellendus! Quo, illo molestiae eos expedita maiores hic porro blanditiis vel, aliquam odit, maxime doloribus dignissimos magnam ratione laudantium animi dolorem enim. Qui dolor nobis fugit nihil cum enim voluptas, ipsum fugiat quidem vitae ut omnis laborum. Eius tenetur ex tempora </br></br> error aliquid ullam corporisem voluptate quo numquam eos earum illum provident cumque rerum, obcaecati a nulla ab error hic alias quod aliquid harum, vero commodi adipisci quam. Ea vitae id eaque? Nihil voluptatem quas quod, nam mollitia vel obcaecati nemo aut temporibus maiores blanditiis dolor minima quibusdam fugiat et quasi enim! Totam?</p>",
+};

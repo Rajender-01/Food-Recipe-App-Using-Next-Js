@@ -1,1 +1,0 @@
-### This Food Recipe App, built with Next.js, allows users to explore a variety of delicious recipes through a user-friendly interface. By leveraging an API, the app fetches and displays recipe details, ingredients, and cooking instructions, making it easy for users to find and save their favorite dishes. Enjoy cooking with quick access to diverse culinary ideas!

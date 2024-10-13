@@ -1,21 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Poppins } from "next/font/google";
+// import { Inter } from "next/font/google";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-export const poppins = Poppins({
-  subsets: ["latin"],
-  variable: "--font-poppins",
-  display: "swap",
-  weight: ["400", "700"],
-});
-
 // export const inter = Inter({
 //   subsets: ['latin'],
-//     variable: "--font-inter",
+//   variable: "--font-inter",
 //   display: 'swap',
-// })
+// });
 
 export const metadata: Metadata = {
   title: "Delicious Recipes - Your Ultimate Food Recipe App",
@@ -25,12 +18,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body >
         <Navbar />
         {children}
         <Footer />
