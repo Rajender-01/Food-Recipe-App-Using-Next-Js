@@ -27,7 +27,7 @@ const index: React.FC<MostSearchedRecipesProps> = ({data} ) => {
         {data.meals.map((meal, index) => (
           <div
             key={index}
-            className="max-w-[403px] min-h-[473px] bg-[#F5F2F2] rounded-3xl flex flex-col"
+            className="max-w-[403px] min-h-[473px] bg-[#F5F2F2] dark:bg-inherit rounded-3xl flex flex-col"
           >
             <Image
               src={meal?.strMealThumb}
@@ -36,7 +36,7 @@ const index: React.FC<MostSearchedRecipesProps> = ({data} ) => {
               height={212}
               className="aspect-auto h-80 rounded-t-3xl"
             />
-            <div className="flex flex-col items-start justify-between h-full gap-6 py-8 px-9 flex-1">
+            <div className="flex flex-col items-start justify-between h-full gap-6 py-8 px-9 flex-1 dark:border-[1px]  dark:border-slate-600 rounded-b-3xl dark:border-t-0">
               <h3 className="text-2xl font-semibold text-nowrap">
                 <span title={meal?.strMeal}>{meal?.strMeal.length > 22 ? `${meal?.strMeal.substring(0, 22)} ...` : meal?.strMeal}</span>
               </h3>

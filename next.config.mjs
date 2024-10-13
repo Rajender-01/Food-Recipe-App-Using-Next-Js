@@ -3,6 +3,7 @@ const nextConfig = {
   images: {
     domains: ['www.themealdb.com'],
   },
+  // swcMinify: true,
 };
 
 export default nextConfig;
