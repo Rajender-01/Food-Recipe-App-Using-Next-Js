@@ -1,69 +1,49 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
-const recipeData = [
-  {
-    id: 1,
-    title: "Waffles",
-    description: "Cool recipe to eat with friends in the morning.",
-    image: "/images/Featured-image-1.jpg",
-  },
-  {
-    id: 2,
-    title: "Coffees",
-    description: "Tasty coffee perfect for the breakfast.",
-    image: "/images/Featured-image-2.jpg",
-  },
-  {
-    id: 3,
-    title: "Omelette",
-    description: "A quick and easy omelette recipe.",
-    image: "/images/Featured-image-3.jpg",
-  },
-  {
-    id: 4,
-    title: "Coffees",
-    description: "Tasty coffee perfect for the breakfast.",
-    image: "/images/Featured-image-2.jpg",
-  },
-  {
-    id: 5,
-    title: "Omelette",
-    description: "A quick and easy omelette recipe.",
-    image: "/images/Featured-image-3.jpg",
-  },
-  {
-    id: 6,
-    title: "Waffles",
-    description: "Cool recipe to eat with friends in the morning.",
-    image: "/images/Featured-image-1.jpg",
-  },
-];
+interface Meal {
+  idMeal: string;
+  strMeal: string;
+  strDrinkAlternate: string | null;
+  strCategory: string;
+  strArea: string;
+  strInstructions: string;
+  strMealThumb: string;
+  strTags: string;
+}
 
-const index: React.FC = () => {
+interface MostSearchedRecipesProps {
+  data: {
+    meals: Meal[];
+  };
+}
+
+const index: React.FC<MostSearchedRecipesProps> = ({data} ) => {
   return (
     <div className="w-full h-auto d-flex-col-center mt-[80px] gap-14">
       <h2 className="text-4xl font-bold">Most Searched Recipes</h2>
       <div className="flex items-start justify-center flex-wrap container gap-9">
-        {Array.from({ length: recipeData?.length }).map((_, index) => (
+        {data.meals.map((meal, index) => (
           <div
             key={index}
-            className="max-w-[403px] min-h-[473px] bg-[#F5F2F2] rounded-3xl"
+            className="max-w-[403px] min-h-[473px] bg-[#F5F2F2] dark:bg-inherit rounded-3xl flex flex-col"
           >
             <Image
-              src={recipeData[index]?.image}
-              alt={recipeData[index]?.title}
+              src={meal?.strMealThumb}
+              alt={meal?.strMeal}
               width={403}
               height={212}
+              className="aspect-auto h-80 rounded-t-3xl"
             />
-            <div className="flex flex-col items-start justify-between h-full gap-6 py-7 px-9">
-              <h3 className="text-3xl font-semibold">
-                {recipeData[index]?.title}
+            <div className="flex flex-col items-start justify-between h-full gap-6 py-8 px-9 flex-1 dark:border-[1px]  dark:border-slate-600 rounded-b-3xl dark:border-t-0">
+              <h3 className="text-2xl font-semibold text-nowrap">
+                <span title={meal?.strMeal}>{meal?.strMeal.length > 22 ? `${meal?.strMeal.substring(0, 22)} ...` : meal?.strMeal}</span>
               </h3>
-              <p className="text-xl">{recipeData[index]?.description}</p>
-              <button className="items-end bg-primaryColor text-white rounded-full px-7 py-2 text-xl hover:bg-red-600 transition-all delay-200">
+              <p className="text-[19px]">{meal?.strInstructions.length > 60 ? `${meal?.strInstructions.substring(0, 60)} ...` : meal?.strInstructions}</p>
+              <Link href={`/${meal?.idMeal}`} className="mt-auto items-end bg-primaryColor text-white rounded-full px-7 py-2 text-[19px] hover:bg-red-600 transition-all delay-200">
                 View recipe
-              </button>
+              </Link>
             </div>
           </div>
         ))}

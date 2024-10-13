@@ -3,11 +3,25 @@ import Banner from "@/components/Banner";
 import MostSeachedRecipes from "@/components/MostSeachedRecipes";
 import RecentRecipes from "@/components/RecentRecipes";
 
-const page = () => {
+const fetchMealsData = async () => {
+  const responses = await Promise.all(
+    ["b", "c", "d", "e"].map((letter) =>
+      fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${letter}`)
+    )
+  );
+
+  const datas = await Promise.all(responses.map((response) => response.json()));
+  const combinedData = datas.reduce((acc, curr) => acc.concat(curr.meals), []);
+  return combinedData.sort(() => Math.random() - 0.5);
+};
+
+const page = async () => {
+  const shuffledData = await fetchMealsData(); // Use the new function
+
   return (
     <div>
       <Banner />
-      <MostSeachedRecipes />
+      <MostSeachedRecipes data={{ meals: shuffledData }} />
       <RecentRecipes />
     </div>
   );
