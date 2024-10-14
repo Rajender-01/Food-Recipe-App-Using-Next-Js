@@ -41,7 +41,7 @@ const index: React.FC<MostSearchedRecipesProps> = ({data} ) => {
                 <span title={meal?.strMeal}>{meal?.strMeal.length > 22 ? `${meal?.strMeal.substring(0, 22)} ...` : meal?.strMeal}</span>
               </h3>
               <p className="text-[19px]">{meal?.strInstructions.length > 60 ? `${meal?.strInstructions.substring(0, 60)} ...` : meal?.strInstructions}</p>
-              <Link href={`/${meal?.idMeal}`} className="mt-auto items-end bg-primaryColor text-white rounded-full px-7 py-2 text-[19px] hover:bg-red-600 transition-all delay-200">
+              <Link href={`/recipe/${meal?.idMeal}`} className="mt-auto items-end bg-primaryColor text-white rounded-full px-7 py-2 text-[19px] hover:bg-red-600 transition-all delay-200">
                 View recipe
               </Link>
             </div>
