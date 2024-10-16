@@ -20,7 +20,7 @@ interface MostSearchedRecipesProps {
   };
 }
 
-const index: React.FC<MostSearchedRecipesProps> = ({ data }) => {
+const Index: React.FC<MostSearchedRecipesProps> = ({ data }) => {
   const [visibleMeals, setVisibleMeals] = useState(6);
 
   const handleLoadMore = () => {
@@ -79,4 +79,4 @@ const index: React.FC<MostSearchedRecipesProps> = ({ data }) => {
   );
 };
 
-export default index;
+export default Index;
