@@ -2,6 +2,19 @@ import React from "react";
 import Banner from "@/components/Banner";
 import Image from "next/image";
 
+export async function generateStaticParams()  {
+  const response = await fetch(
+    "https://www.themealdb.com/api/json/v1/1/search.php?f=a"
+  );
+  const data = await response.json();
+  const paths = data?.meals?.map((meal: { idMeal: string }) => ({
+    params: { id: meal?.idMeal },
+  })) || []; 
+
+  // Return only the paths array
+  return paths.length > 0 ? paths : []; // Return paths directly
+}
+
 const Page = async ({ params }: { params: { id: string } }) => {
   const response = await fetch(
     `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${params.id}`
