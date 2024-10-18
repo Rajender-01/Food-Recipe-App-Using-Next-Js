@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { Suspense, useEffect, useState } from "react";
+import React, {useEffect, useState } from "react";
 import Search from "../Search";
 import { useSearchParams } from "next/navigation";
 
@@ -25,13 +25,13 @@ interface MostSearchedRecipesProps {
 const Index: React.FC<MostSearchedRecipesProps> = ({ data }) => {
   const [visibleMeals, setVisibleMeals] = useState(6);
   const [filteredMeals, setFilteredMeals] = useState<Meal[]>(data.meals);
-  const searchParams   = useSearchParams()
+  const searchParams = useSearchParams();
 
-  const searchQuery = searchParams.get('s');
+  const searchQuery = searchParams.get("s");
 
   useEffect(() => {
     if (searchQuery) {
-      const filtered = data.meals.filter(meal =>
+      const filtered = data.meals.filter((meal) =>
         meal?.strMeal?.toLowerCase()?.includes(searchQuery?.toLowerCase())
       );
       setFilteredMeals(filtered);
@@ -49,7 +49,6 @@ const Index: React.FC<MostSearchedRecipesProps> = ({ data }) => {
       <Search />
       <h2 className="text-4xl font-bold">Most Searched Recipes</h2>
       <div className="flex items-start justify-center flex-wrap container gap-9">
-      <Suspense fallback={<div>Loading meals...</div>}>
         {filteredMeals.slice(0, visibleMeals).map((meal, index) => (
           <div
             key={index}
@@ -84,7 +83,6 @@ const Index: React.FC<MostSearchedRecipesProps> = ({ data }) => {
             </div>
           </div>
         ))}
-          <Suspense/>
         {filteredMeals.length > visibleMeals && (
           <button
             onClick={handleLoadMore}
