@@ -3,8 +3,9 @@ import Banner from "@/components/Banner";
 import MostSeachedRecipes from "@/components/MostSeachedRecipes";
 
 const fetchMealsData = async () => {
+  const letters = [...Array(26)].map((_, i) => String.fromCharCode(i + 97));
   const responses = await Promise.all(
-    ["b", "c", "d", "e"].map((letter) =>
+    letters.map((letter) =>
       fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${letter}`)
     )
   );
