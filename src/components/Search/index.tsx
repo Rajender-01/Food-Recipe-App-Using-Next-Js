@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
-const index = () => {
+const Index = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
 
@@ -44,7 +44,7 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
 
 // TODO: OLD WAY TO ADD QUERY
 // const handleSearch = () => {
