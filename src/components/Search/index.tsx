@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
-const Index = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+const Index = ({ searchQuery }: { searchQuery: string }) => {
+  const [searchTerm, setSearchTerm] = useState(searchQuery);
   const router = useRouter();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,13 +25,13 @@ const Index = () => {
   };
 
   return (
-    <div className="w-2/6 flex items-center justify-center">
+    <div className="w-2/6 flex items-center justify-center dark:border-[1px] dark:border-slate-600">
       <input
         type="search"
         value={searchTerm}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-        className="bg-[#ccccccc2] flex-1 h-auto py-[8px] px-6 text-lg font-semibold"
+        className="bg-[#ccccccc2] dark:bg-transparent flex-1 h-auto py-[8px] px-6 text-lg font-semibold"
         placeholder="Search..."
       />
       <button

@@ -46,7 +46,7 @@ const Index: React.FC<MostSearchedRecipesProps> = ({ data }) => {
 
   return (
     <div className="w-full h-auto d-flex-col-center mt-[80px] gap-14">
-      <Search />
+      <Search searchQuery={searchQuery} />
       <h2 className="text-4xl font-bold">Most Searched Recipes</h2>
       <div className="flex items-start justify-center flex-wrap container gap-9">
         {filteredMeals.slice(0, visibleMeals).map((meal, index) => (
