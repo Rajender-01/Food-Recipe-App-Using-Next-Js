@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Search from "../Search";
 import { useSearchParams } from "next/navigation";
 
@@ -20,25 +20,14 @@ interface MostSearchedRecipesProps {
   data: {
     meals: Meal[];
   };
+  category: string;
 }
 
-const Index: React.FC<MostSearchedRecipesProps> = ({ data }) => {
-  const [visibleMeals, setVisibleMeals] = useState(6);
-  const [filteredMeals, setFilteredMeals] = useState<Meal[]>(data.meals);
-  const searchParams = useSearchParams();
-
-  const searchQuery = searchParams.get("s");
-
-  useEffect(() => {
-    if (searchQuery) {
-      const filtered = data.meals.filter((meal) =>
-        meal?.strMeal?.toLowerCase()?.includes(searchQuery?.toLowerCase())
-      );
-      setFilteredMeals(filtered);
-    } else {
-      setFilteredMeals(data.meals);
-    }
-  }, [searchQuery, data.meals]);
+const Index: React.FC<MostSearchedRecipesProps> = ({ data, category }) => {
+  const [visibleMeals, setVisibleMeals] = useState(3);
+  const FilterByCategory = data?.meals?.filter(
+    (meal: { strArea: string }) => meal?.strArea === "Indian"
+  );
 
   const handleLoadMore = () => {
     setVisibleMeals(visibleMeals + 9);
@@ -46,10 +35,9 @@ const Index: React.FC<MostSearchedRecipesProps> = ({ data }) => {
 
   return (
     <div className="w-full h-auto d-flex-col-center mt-[80px] gap-14">
-      <Search searchQuery={searchQuery || ''} />
-      <h2 className="text-4xl font-bold">Most Searched Recipes</h2>
+      <h2 className="text-4xl font-bold">{`${category} Recipes`}</h2>
       <div className="flex items-start justify-center flex-wrap container gap-9">
-        {filteredMeals.slice(0, visibleMeals).map((meal, index) => (
+        {FilterByCategory?.slice(0, visibleMeals).map((meal, index) => (
           <div
             key={index}
             className="max-w-[403px] min-h-[473px] bg-[#F5F2F2] dark:bg-inherit rounded-3xl flex flex-col"
@@ -83,7 +71,7 @@ const Index: React.FC<MostSearchedRecipesProps> = ({ data }) => {
             </div>
           </div>
         ))}
-        {filteredMeals.length > visibleMeals && (
+        {FilterByCategory?.length > visibleMeals && (
           <button
             onClick={handleLoadMore}
             className="bg-primaryColor block text-white px-9 py-2 w-auto font-semibold text-lg mt-6"
