@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
                 }`}
               >
                 <Link
-                  href={item?.link?.toLowerCase() || "/"}
+                  href={`/${item?.link?.toLowerCase()}` || "/"}
                   className="text-decoration-none"
                 >
                   {item?.name}
