@@ -86,7 +86,7 @@ const Index: React.FC<MostSearchedRecipesProps> = ({ data }) => {
         {filteredMeals.length > visibleMeals && (
           <button
             onClick={handleLoadMore}
-            className="bg-primaryColor block text-white px-9 py-2 w-auto font-semibold text-lg mt-6"
+            className="bg-primaryColor mx-auto block text-white px-9 py-2 w-auto font-semibold text-lg mt-6"
           >
             Load More
           </button>
