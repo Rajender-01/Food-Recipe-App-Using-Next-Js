@@ -9,6 +9,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { CredentialsSignin } from "next-auth";
+import { signIn } from "next-auth/react";
 
 const Page = () => {
   return (
@@ -18,9 +20,30 @@ const Page = () => {
           <CardTitle className="text-center">Login Form</CardTitle>
         </CardHeader>
         <CardContent>
-          <form action="" className="space-y-6">
-            <Input type="email" placeholder="Email" />
-            <Input type="password" placeholder="Password" />
+          <form
+            action={async (formData: FormData) => {
+              "use server";
+              const email = formData.get("email") as string | undefined;
+              const password = formData.get("password") as string | undefined;
+
+              if (!email || !password) throw new Error("please provide all fields");
+
+              try {
+                await signIn("Credentials", {
+                  email,
+                  password,
+                  redirect: true,
+                  redirectTo: "/",
+                });
+              } catch (error) {
+                const err = error as CredentialsSignin;
+                return err.message;
+              }
+            }}
+            className="space-y-6"
+          >
+            <Input type="email" placeholder="Email" name="email" />
+            <Input type="password" placeholder="Password" name="password" />
             <Button className="w-full" type="submit">
               Login
             </Button>

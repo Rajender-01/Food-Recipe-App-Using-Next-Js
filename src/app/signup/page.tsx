@@ -9,6 +9,10 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { User } from "@/models/userModel";
+import { hash } from "bcryptjs";
+import { redirect } from "next/navigation";
+import { connectToDatabase } from "@/lib/utils";
 
 const Page = () => {
   return (
@@ -30,6 +34,21 @@ const Page = () => {
                 throw new Error("Please provide all fields");
               }
 
+              // CONNECTION WITH DATABASE
+
+              await connectToDatabase()
+              const user = await User.findOne({ email });
+              if (user) throw new Error("User already exists");
+
+              const hashedPassword = await hash(password, 10);
+
+              await User.create({
+                name,
+                email,
+                password: hashedPassword,
+              });
+
+              redirect("/login");
             }}
             className="space-y-6"
           >
