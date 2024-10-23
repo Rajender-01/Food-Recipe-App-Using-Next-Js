@@ -48,8 +48,8 @@ const Index: React.FC<MostSearchedRecipesProps> = ({ data }) => {
     <div className="w-full h-auto d-flex-col-center mt-[80px] gap-14">
       <Search searchQuery={searchQuery || ''} />
       <h2 className="text-4xl font-bold">Most Searched Recipes</h2>
-      <div className="flex items-start justify-between flex-wrap container gap-9">
-        {filteredMeals.slice(0, visibleMeals).map((meal, index) => (
+      <div className="flex items-start justify-center flex-wrap container gap-9">
+        {filteredMeals?.some((meal) => meal?.strMeal) && filteredMeals.slice(0, visibleMeals).map((meal, index) => (
           <div
             key={index}
             className="max-w-[403px] min-h-[473px] bg-[#F5F2F2] dark:bg-inherit rounded-3xl flex flex-col"
