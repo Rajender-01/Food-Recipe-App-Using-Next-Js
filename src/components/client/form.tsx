@@ -27,9 +27,10 @@ const LoginForm = () => {
             router.refresh();
           }
           else {
-            toast.error(String(error), {
+            toast.error(JSON.stringify(error.message), {
               id: toastId,
             });
+            router.refresh();
           }
         }}
         className="space-y-6"
