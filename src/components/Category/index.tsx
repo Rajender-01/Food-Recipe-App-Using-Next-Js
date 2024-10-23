@@ -1,9 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import Search from "../Search";
-import { useSearchParams } from "next/navigation";
+import React, { useState } from "react";
 
 interface Meal {
   idMeal: string;
@@ -36,7 +34,7 @@ const Index: React.FC<MostSearchedRecipesProps> = ({ data, category }) => {
   return (
     <div className="w-full h-auto d-flex-col-center mt-[80px] gap-14">
       <h2 className="text-4xl font-bold">{`${category} Recipes`}</h2>
-      <div className="flex items-start justify-center flex-wrap container gap-9">
+      <div className="flex items-start justify-between flex-wrap container gap-9">
         {FilterByCategory?.slice(0, visibleMeals).map((meal, index) => (
           <div
             key={index}
@@ -74,7 +72,7 @@ const Index: React.FC<MostSearchedRecipesProps> = ({ data, category }) => {
         {FilterByCategory?.length > visibleMeals && (
           <button
             onClick={handleLoadMore}
-            className="bg-primaryColor block text-white px-9 py-2 w-auto font-semibold text-lg mt-6"
+            className="bg-primaryColor mx-auto block text-white px-9 py-2 w-auto font-semibold text-lg mt-6"
           >
             Load More
           </button>

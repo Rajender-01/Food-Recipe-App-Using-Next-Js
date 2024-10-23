@@ -49,7 +49,7 @@ const Index: React.FC<MostSearchedRecipesProps> = ({ data }) => {
       <Search searchQuery={searchQuery || ''} />
       <h2 className="text-4xl font-bold">Most Searched Recipes</h2>
       <div className="flex items-start justify-center flex-wrap container gap-9">
-        {filteredMeals.slice(0, visibleMeals).map((meal, index) => (
+        {filteredMeals?.some((meal) => meal?.strMeal) && filteredMeals.slice(0, visibleMeals).map((meal, index) => (
           <div
             key={index}
             className="max-w-[403px] min-h-[473px] bg-[#F5F2F2] dark:bg-inherit rounded-3xl flex flex-col"
@@ -86,7 +86,7 @@ const Index: React.FC<MostSearchedRecipesProps> = ({ data }) => {
         {filteredMeals.length > visibleMeals && (
           <button
             onClick={handleLoadMore}
-            className="bg-primaryColor block text-white px-9 py-2 w-auto font-semibold text-lg mt-6"
+            className="bg-primaryColor mx-auto block text-white px-9 py-2 w-auto font-semibold text-lg mt-6"
           >
             Load More
           </button>
