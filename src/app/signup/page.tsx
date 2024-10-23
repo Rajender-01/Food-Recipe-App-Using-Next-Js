@@ -34,7 +34,6 @@ const Page = () => {
                 throw new Error("Please provide all fields");
               }
 
-              // CONNECTION WITH DATABASE
 
               await connectToDatabase()
               const user = await User.findOne({ email });
